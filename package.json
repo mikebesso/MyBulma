@@ -6,7 +6,9 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "node-sass --output-style expanded --include-path=node_modules/bulma sass/custom.scss css/custom.css",
-    "start": "npm run build -- --watch"
+    "start": "npm run build -- --watch",
+    "prince": "prince \"index.html\" -o \"index.pdf\" --no-parallel-downloads --css-dpi=96"
+    
   },
   "author": "",
   "license": "ISC",

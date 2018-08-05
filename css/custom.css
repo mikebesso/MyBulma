@@ -1,3 +1,13 @@
+@page {
+  size: page-width 11in portrait;
+  margin-top: 0.5in;
+  margin-left: 0.5in;
+  margin-right: 0.5in;
+  margin-bottom: 0.5in;
+  padding: 0;
+  /* marks: crop;*/
+}
+
 /*! bulma.io v0.7.1 | MIT License | github.com/jgthms/bulma */
 @keyframes spinAround {
   from {
@@ -9631,4 +9641,60 @@ label.panel-block:hover {
 .footer {
   background-color: #fafafa;
   padding: 3rem 1.5rem 6rem;
+}
+
+.PageBreakBefore {
+  page-break-before: always;
+}
+
+.PageBreakAfter {
+  page-break-after: always;
+}
+
+.page {
+  background-color: yellow;
+  border: 3pt;
+  border-style: solid;
+  width: 6.5in;
+  height: 9in;
+}
+
+.is-2-print {
+  background-color: red;
+}
+
+@media screen {
+  .is-2-print {
+    max-width: 1in;
+    background-color: green;
+  }
+}
+
+@media print {
+  .is-2-print {
+    max-width: 1in;
+    background-color: blue;
+  }
+}
+
+.is-one-seventh-print {
+  max-width: 1.21429in;
+}
+
+.is-six-sevenths-print {
+  max-width: 7.28571in;
+}
+
+.day-column {
+  display: block;
+  flex-basis: 0;
+  flex-grow: 0;
+  flex-shrink: 0;
+  padding: 0.25rem;
+  max-width: 1.21429in;
+  min-width: 1.21429in;
+}
+
+.is-marginless {
+  margin: 0;
 }

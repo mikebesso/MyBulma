@@ -1,4 +1,78 @@
+
+$page-pixels-per-inch: 96px / 1in;
+$page-width: 8.5in;
+$page-height: 11in;
+
+$page-margin: 1in;
+
+$day-column-width: ($page-width / 7) * $page-pixels-per-inch;
+
+@page{
+    size: page-width $page-height portrait;
+    margin-top: $page-pixels-per-inch * $page-margin / 2;
+    margin-left: $page-pixels-per-inch * $page-margin / 2;
+    margin-right: $page-pixels-per-inch * $page-margin / 2;
+    margin-bottom: $page-pixels-per-inch * $page-margin / 2;
+    padding: 0;
+    /* marks: crop;*/
+}
+
+
 @import "node_modules/bulma/bulma";
 
-git remote add origin https://github.com/mikebesso/MyBulma.git
-git push -u origin master
+
+.PageBreakBefore {
+    page-break-before: always;
+ }
+ .PageBreakAfter {
+    page-break-after: always;
+ }
+
+ .page {
+    background-color: yellow;
+    border: 3pt;
+    border-style: solid;
+    width: $page-width - (2 * $page-margin);
+    height: $page-height - (2 * $page-margin);
+ }
+
+
+.is-2-print {
+    background-color: red;
+}
+
+ @media screen {
+    .is-2-print {
+        max-width: 1in;
+        background-color: green;
+    }
+}
+
+ @media print {
+ .is-2-print {
+     max-width: 1in * $page-pixels-per-inch;
+     background-color: blue;
+ }
+}
+
+.is-one-seventh-print {
+    max-width: $day-column-width;
+}
+
+.is-six-sevenths-print {
+    max-width: 6 * $day-column-width;
+}
+
+.day-column {
+    display: block;
+    flex-basis: 0;
+    flex-grow: 0;
+    flex-shrink: 0;
+    padding: 0.25rem;
+    max-width: $day-column-width;
+    min-width: $day-column-width;
+}
+
+.is-marginless {
+    margin: 0;
+}
