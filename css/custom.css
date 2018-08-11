@@ -1,5 +1,5 @@
 @page {
-  size: page-width 14in portrait;
+  size: page-width 11in portrait;
   margin-top: 0.5in;
   margin-left: 0.5in;
   margin-right: 0.5in;
@@ -9656,7 +9656,7 @@ label.panel-block:hover {
   border: 3pt;
   border-style: solid;
   width: 6.5in;
-  height: 12in;
+  height: 9in;
 }
 
 .is-2-print {
@@ -9695,6 +9695,26 @@ label.panel-block:hover {
   min-width: 1.21429in;
 }
 
+.day-body {
+  height: 100%;
+  border-color: black;
+  border-width: 1px;
+  border-style: solid;
+  background-color: white;
+}
+
+.index-statement:nth-child(even) {
+  background: #CCC;
+}
+
+.index-statement:nth-child(odd) {
+  background: #FFF;
+}
+
 .is-marginless {
   margin: 0;
+}
+
+.cal-content {
+  font-size: 0.7rem;
 }

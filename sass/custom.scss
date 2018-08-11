@@ -1,7 +1,7 @@
 
 $page-pixels-per-inch: 96px / 1in;
 $page-width: 8.5in;
-$page-height: 14in;
+$page-height: 11in;
 
 $page-margin: 1in;
 
@@ -71,8 +71,25 @@ $day-column-width: ($page-width / 7) * $page-pixels-per-inch;
     padding: 0.25rem;
     max-width: $day-column-width;
     min-width: $day-column-width;
+
 }
+
+.day-body {
+    height: 100%;
+    border-color: black;
+    border-width: 1px;
+    border-style: solid;
+    background-color: white;
+
+}
+
+.index-statement:nth-child(even) {background: #CCC}
+.index-statement:nth-child(odd) {background: #FFF}
 
 .is-marginless {
     margin: 0;
+}
+
+.cal-content {
+    font-size: 0.7rem;
 }
