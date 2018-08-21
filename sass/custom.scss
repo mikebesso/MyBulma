@@ -93,3 +93,63 @@ $day-column-width: ($page-width / 7) * $page-pixels-per-inch;
 .cal-content {
     font-size: 0.7rem;
 }
+
+
+.Calendar {
+    @extend .container;
+    width: 9 * $day-column-width;
+    margin: .25in;
+}
+
+.Calendar-Header {
+    @extend .title;
+}
+
+.Calendar-Columns {
+    @extend .columns;
+    flex-wrap: wrap;
+
+}
+
+
+.Calendar-Column {
+    @extend .column;
+    flex-grow: 0;
+    flex-shrink:0;
+
+    border-width: 1pt;
+    border-color: black;
+    border-style: solid;
+    border-radius: 5%;
+
+    width: $day-column-width;
+    
+ 
+}
+
+
+.Calendar-Day {
+    min-width: $day-column-width;
+    max-width: $day-column-width;
+
+    background-color: yellow;
+
+    &-Name {
+        text-align: center;
+        min-width: $day-column-width;
+        max-width: $day-column-width;
+    }
+
+    &-Header {
+        height: 12pt;
+
+    }
+
+    &-Body {
+        height: 64pt;
+    }
+
+    &-Footer {
+        height: 12pt;
+    }
+}
