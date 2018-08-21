@@ -3,12 +3,16 @@ $page-pixels-per-inch: 96px / 1in;
 $page-width: 8.5in;
 $page-height: 11in;
 
-$page-margin: 1in;
+$page-margin: 0.75in;
 
-$day-column-width: ($page-width / 7) * $page-pixels-per-inch;
+
+
+$content-width: $page-width - (2 * $page-margin);
+
+$day-column-width: $content-width / 7.0 * $page-pixels-per-inch;
 
 @page{
-    size: page-width $page-height portrait;
+    size: $page-width $page-height portrait;
     margin-top: $page-pixels-per-inch * $page-margin / 2;
     margin-left: $page-pixels-per-inch * $page-margin / 2;
     margin-right: $page-pixels-per-inch * $page-margin / 2;
@@ -29,10 +33,9 @@ $day-column-width: ($page-width / 7) * $page-pixels-per-inch;
  }
 
  .page {
-    background-color: yellow;
     border: 3pt;
-    border-style: solid;
-    width: $page-width - (2 * $page-margin);
+    border-style: dotted;
+    width: $content-width;
     height: $page-height - (2 * $page-margin);
  }
 
@@ -152,4 +155,289 @@ $day-column-width: ($page-width / 7) * $page-pixels-per-inch;
     &-Footer {
         height: 12pt;
     }
+}
+
+
+/***************************************/
+
+
+
+.MyContainer {
+    position: relative;
+}
+.MyColumn {
+  margin: .5rem;
+}
+
+.MyColumns {
+    display: flex;
+   padding: .5rem;
+}
+
+.MyColumnsWrapped {
+    display: flex;
+    flex-wrap: wrap;  
+}
+
+.MyRows {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  padding: .5rem;
+}
+
+.MyRow {
+  width: 100%;  
+  margin: .5rem;
+  height:100%;
+}
+
+.Index {
+  
+  font-family: arial;
+  font-size: 8pt;
+  margin:.25in;
+
+  position: relative;
+  
+  &-NavBar {
+    @extend .MyColumns;
+    
+    font-size: 10pt;
+    min-width: $content-width;
+      
+      &-Previous, &-Next {
+        max-width: 8rem;
+        text-align: center!important;
+        display: block;
+        flex-basis: 0;
+        flex-grow: 1;
+        flex-shrink:0;
+        padding: .75rem;
+        background-color: lightgreen;
+        color: white;
+
+      }
+  
+    &-Breadcrumb {
+        display: block;
+        flex-basis: 0;
+        flex-grow: 7;
+        flex-shrink:0;
+        padding: .75rem;     
+        min-width: $content-width;;
+        background-color: lightgreen;
+        
+    }
+
+    &-Title {
+
+      display: block;
+      flex-basis: 0;
+      flex-grow: 7;
+      flex-shrink:0;
+      padding: .75rem;     
+      min-width: $content-width;;   
+      text-align: center;  
+      background-color: $primary;
+      
+
+      
+    }
+ 
+      
+  }
+  
+  &-Statement {
+  
+    &-Container {
+      position: relative;
+      width: 100%;
+    }
+  
+    &-Columns {
+      display: flex;
+      flex-wrap: wrap;  
+      justify-content: space-between;
+    }
+
+    &-Columns-Column {
+
+      flex-grow: 1;
+      flex-shrink: 0;
+
+      &-Content{
+        @extend .content;
+        min-width: $content-width * .48;
+        max-width: $content-width * .48;
+        padding: .5rem;
+      }
+
+    }
+
+    &-Subtitle {
+      font-size: 1.25rem;
+      font-weight: 600;
+      margin-bottom: .25rem;
+    }
+
+  }
+}
+
+.TagCloud {
+ 
+  margin-top: 1 rem;
+  margin-bottom: 2rem;
+  width: 100%;
+  position: relative;
+  
+  
+  &-Header {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: .25rem;
+  }
+  
+  
+  
+}
+
+
+
+.Calendar {
+  font-family: arial;
+  font-size: 8pt;
+
+  &-Container {
+    position: relative;
+    width: 7 * $day-column-width;
+    margin: 0.25in;
+  }
+
+  &-Header {
+    font-size: 24pt;
+    text-align: center;
+  }
+  
+  &-Footer {
+    margin-top: 1rem;
+    
+  }
+
+  &-Columns {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  &-Column {
+    flex-grow: 0;
+    flex-shrink: 0;
+
+    border-width: 1pt;
+    border-color: black;
+    border-style: solid;
+    border-radius: 5%;
+
+    width: $day-column-width;
+  }
+  
+  &-Day {
+    flex-grow: 0;
+    flex-shrink: 0;
+
+    border-width: 1pt;
+    border-color: black;
+    border-style: solid;
+    border-radius: 5%;
+
+    min-width: $day-column-width;
+    max-width: $day-column-width;
+    padding-left: 6pt;
+    padding-right: 6pt;
+    
+    &-Name {
+      text-align: center;
+    }
+
+    &-Header {
+      height: 12pt;
+    }
+
+    &-Body {
+      height: 64pt;
+    }
+
+    &-Footer {
+      height: 12pt;
+      padding-bottom: 17pt;
+    }    
+    
+    &-Notes {
+      height: 100%;
+    }
+  }  
+  
+}
+
+.ruled {
+  width:100%;
+  height:100%;
+  
+  background: repeating-linear-gradient(#fff, #fff 20px, #000 20px, #000 22px);
+  
+  margin:0 auto;
+  //background-size: 100% 30px;
+  position:relative;
+  padding-top:0px;
+  padding-left:0px;
+  padding-right:0px;
+  overflow:hidden;
+}
+
+.ToC {
+
+    @extend .container;
+    @extend .page;
+
+    margin: $page-margin;
+    
+    &-Header {
+        @extend .title;
+    }
+
+    &-Container
+    {
+        position:relative;;
+        width: 100%;
+    }
+}
+
+
+.Subcategories {
+  margin: 0;
+}
+
+.Subcategory {
+  margin-left: 1rem;
+  &-Header {
+    font-weight: bold;
+  }
+}
+
+.Topics {
+  margin-left: 1rem;
+}
+
+.Topic {
+  margin: 1rem;
+  &-Header {
+    font-weight: bold;
+  }
+}
+
+.Statement {
+  margin: 1rem;
+  border-width: 1pt;
+  border-style: solid;
+  padding: .5rem;
 }
