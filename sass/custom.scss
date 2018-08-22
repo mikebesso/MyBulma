@@ -197,6 +197,7 @@ $day-column-width: $content-width / 7.0 * $page-pixels-per-inch;
   font-family: arial;
   font-size: 8pt;
   margin:.25in;
+  width: $page-width;
 
   position: relative;
   
@@ -265,7 +266,8 @@ $day-column-width: $content-width / 7.0 * $page-pixels-per-inch;
 
       flex-grow: 1;
       flex-shrink: 0;
-
+      margin: .5rem;
+      
       &-Content{
         @extend .content;
         min-width: $content-width * .48;

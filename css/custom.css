@@ -9832,6 +9832,7 @@ label.panel-block:hover {
   font-family: arial;
   font-size: 8pt;
   margin: .25in;
+  width: 8.5in;
   position: relative;
 }
 
@@ -9887,6 +9888,7 @@ label.panel-block:hover {
 .Index-Statement-Columns-Column {
   flex-grow: 1;
   flex-shrink: 0;
+  margin: .5rem;
 }
 
 .Index-Statement-Columns-Column-Content {
