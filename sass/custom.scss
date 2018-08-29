@@ -135,7 +135,7 @@ $day-column-width: $content-width / 7.0 * $page-pixels-per-inch;
     min-width: $day-column-width;
     max-width: $day-column-width;
 
-    background-color: yellow;
+    background-color: whitesmoke;
 
     &-Name {
         text-align: center;
@@ -366,7 +366,7 @@ $day-column-width: $content-width / 7.0 * $page-pixels-per-inch;
     }
 
     &-Body {
-      height: 64pt;
+      height: 96pt;
     }
 
     &-Footer {

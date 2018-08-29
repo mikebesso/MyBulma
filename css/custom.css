@@ -9775,7 +9775,7 @@ label.panel-block:hover {
 .Calendar-Day {
   min-width: 1in;
   max-width: 1in;
-  background-color: yellow;
+  background-color: whitesmoke;
 }
 
 .Calendar-Day-Name {
@@ -9973,7 +9973,7 @@ label.panel-block:hover {
 }
 
 .Calendar-Day-Body {
-  height: 64pt;
+  height: 96pt;
 }
 
 .Calendar-Day-Footer {
