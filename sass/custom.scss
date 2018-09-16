@@ -3,23 +3,131 @@ $page-pixels-per-inch: 96px / 1in;
 $page-width: 8.5in;
 $page-height: 11in;
 
-$page-margin: 0.75in;
+$page-margin-lr: 0.25in;
+$page-margin-tb: 0.5in;
 
 
 
-$content-width: $page-width - (2 * $page-margin);
+$content-width: $page-width - (2 * $page-margin-lr);
 
 $day-column-width: $content-width / 7.0 * $page-pixels-per-inch;
 
+
+.page-assets {
+
+  @media screen {
+    display: none;
+  }
+}
+
 @page{
     size: $page-width $page-height portrait;
-    margin-top: $page-pixels-per-inch * $page-margin / 2;
-    margin-left: $page-pixels-per-inch * $page-margin / 2;
-    margin-right: $page-pixels-per-inch * $page-margin / 2;
-    margin-bottom: $page-pixels-per-inch * $page-margin / 2;
+    margin-top: $page-margin-tb;
+    margin-left: $page-margin-lr;
+    margin-right: $page-margin-lr;
+    margin-bottom: $page-margin-tb;
     padding: 0;
-    /* marks: crop;*/
+    marks: crop cross;
 }
+
+@page Intro{
+  @top-left{
+    font-size: 9pt;
+    content: flow(TopLeftContent);
+  }
+  @top-right{
+    content: flow(TopRightContent);
+  }
+  @bottom-left{
+    content: flow(BottomLeftContent);
+  }
+  @bottom-right{
+    font-size: 9pt;
+    content: counter(page);
+  }
+}
+
+@page months{
+  @top{ 
+    content: string(page-header-top);
+    font-family: arial;
+    font-size: 16pt;
+    font-weight: bold;
+  }
+  @top-left{
+    content: flow(TopLeftContent);
+  }
+  @top-right{
+    content: flow(TopRightContent);
+    text-align: right;
+    vertical-align: middle;
+  }
+  @bottom-left{
+    content: flow(BottomLeftContent);
+  }
+  @bottom-right{
+    content: counter(page);
+  }
+}
+
+@page responses{
+
+  @top{ 
+    content: string(page-header-top);
+    font-family: arial;
+    font-size: 16pt;
+    font-weight: bold;
+  }
+
+  @top-left{
+    content: flow(TopLeftContent);
+  }
+  @top-right{
+    content: "" flow(TopRightContent);
+  }
+  @bottom-left{
+    content: flow(BottomLeftContent);
+  }
+  @bottom-right{
+    content: counter(page);
+  }
+}
+
+#top-left-content {
+  margin-left: 2in;
+  flow: static(TopLeftContent);
+}
+
+#top-right-content {
+  width: 100%;
+  text-align: right;
+  vertical-align: top;
+  flow: static(TopRightContent);
+}
+
+#bottom-left-content {
+  flow: static(BottomLeftContent);
+}
+
+#bottom-right-content {
+  text-align: right;
+  flow: static(BottomRightContent);
+}
+
+#page-disclaimer{
+  position: relative;
+  width: 100%;
+  height: 10in;
+  
+  
+  > div {
+    position: absolute;
+    top: 5in;
+    width: 100%;
+  }
+}
+
+
 
 
 @import "node_modules/bulma/bulma";
@@ -36,7 +144,7 @@ $day-column-width: $content-width / 7.0 * $page-pixels-per-inch;
     border: 3pt;
     border-style: dotted;
     width: $content-width;
-    height: $page-height - (2 * $page-margin);
+    height: $page-height - (2 * $page-margin-tb);
  }
 
 
@@ -57,6 +165,29 @@ $day-column-width: $content-width / 7.0 * $page-pixels-per-inch;
      background-color: blue;
  }
 }
+
+.Intro {
+
+  page-break-before: always;
+
+  &-Image {
+
+    margin: 6pt;
+
+  }
+
+  &-Body {
+    margin-top: 6pt;
+    p {
+      margin-bottom: 6pt;
+    }
+    p:last{
+      margin-bottom: 0;
+    }
+  }
+}
+
+
 
 .is-one-seventh-print {
     max-width: $day-column-width;
@@ -97,16 +228,28 @@ $day-column-width: $content-width / 7.0 * $page-pixels-per-inch;
     font-size: 0.7rem;
 }
 
-
-.Calendar {
-    @extend .container;
-    width: 9 * $day-column-width;
-    margin: .25in;
+.HowTo {
+    page: howto;
+    counter-reset: page 2
 }
 
-.Calendar-Header {
-    @extend .title;
+.Responses {
+  page: respones;
+
+  &-Blurb {
+    margin-top: 24pt;
+    margin-bottom: 24pt;
+  }
 }
+
+.ResponseGroup {
+
+  page-break-after: always;
+  string-set: page-header-top attr(group);
+  
+}
+
+
 
 .Calendar-Columns {
     @extend .columns;
@@ -130,7 +273,7 @@ $day-column-width: $content-width / 7.0 * $page-pixels-per-inch;
  
 }
 
-
+/*
 .Calendar-Day {
     min-width: $day-column-width;
     max-width: $day-column-width;
@@ -144,20 +287,20 @@ $day-column-width: $content-width / 7.0 * $page-pixels-per-inch;
     }
 
     &-Header {
-        height: 12pt;
-
+        height: 1rem;
+        font-weight: bold;
     }
 
     &-Body {
-        height: 64pt;
+        height: 6rem;
     }
 
     &-Footer {
-        height: 12pt;
+        height: 1rem;
     }
 }
 
-
+*/
 /***************************************/
 
 
@@ -305,10 +448,45 @@ $day-column-width: $content-width / 7.0 * $page-pixels-per-inch;
 }
 
 
+/*
+.Calendar {
+  @extend .container;
+  page: months;
+  page-break-after: always;
+  width: 7 * $day-column-width;
+  //margin: .25in;
+
+
+
+
+}
+
+.Calendar-Header {
+  font-size: 24pt;
+  text-align: center;
+  string-set: page-header-top content();
+
+  @media print {
+    display: none;
+  }
+}
+*/
 
 .Calendar {
+  @extend .container;
+  page-break-before: always;
+  page: months;
+  string-set: page-header-top attr(month);
   font-family: arial;
   font-size: 8pt;
+  width: 7 * $day-column-width;
+  
+  @media print {
+    margin-top: 24pt;
+  }
+  @media screen {
+    margin-top: 32pt;
+  }
 
   &-Container {
     position: relative;
@@ -319,6 +497,12 @@ $day-column-width: $content-width / 7.0 * $page-pixels-per-inch;
   &-Header {
     font-size: 24pt;
     text-align: center;
+    margin-bottom: 6pt;
+    
+
+    @media print {
+      display: none; 
+    }
   }
   
   &-Footer {
@@ -347,6 +531,8 @@ $day-column-width: $content-width / 7.0 * $page-pixels-per-inch;
     flex-grow: 0;
     flex-shrink: 0;
 
+    background-color: whitesmoke;
+    
     border-width: 1pt;
     border-color: black;
     border-style: solid;
@@ -358,20 +544,29 @@ $day-column-width: $content-width / 7.0 * $page-pixels-per-inch;
     padding-right: 6pt;
     
     &-Name {
+      min-height: 12pt;
+      max-height: 12pt;  
+      font-weight: bold;    
       text-align: center;
     }
 
     &-Header {
-      height: 12pt;
+      font-weight: bold;
+      min-height: 12pt;
+      max-height: 12pt;
     }
 
     &-Body {
-      height: 96pt;
+      min-height: 86pt;
+      max-height: 86pt;    
+      overflow: hidden;  
     }
 
     &-Footer {
-      height: 12pt;
-      padding-bottom: 17pt;
+      min-height: 12pt;
+      max-height: 12pt;
+
+//      padding-bottom: 17pt;
     }    
     
     &-Notes {
@@ -401,7 +596,7 @@ $day-column-width: $content-width / 7.0 * $page-pixels-per-inch;
     @extend .container;
     @extend .page;
 
-    margin: $page-margin;
+    margin: $page-margin-lr;
     
     &-Header {
         @extend .title;
@@ -442,4 +637,8 @@ $day-column-width: $content-width / 7.0 * $page-pixels-per-inch;
   border-width: 1pt;
   border-style: solid;
   padding: .5rem;
+}
+
+td {
+  page-break-inside: avoid;
 }

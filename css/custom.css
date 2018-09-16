@@ -1,11 +1,111 @@
+@media screen {
+  .page-assets {
+    display: none;
+  }
+}
+
 @page {
   size: 8.5in 11in portrait;
-  margin-top: 0.375in;
-  margin-left: 0.375in;
-  margin-right: 0.375in;
-  margin-bottom: 0.375in;
+  margin-top: 0.5in;
+  margin-left: 0.25in;
+  margin-right: 0.25in;
+  margin-bottom: 0.5in;
   padding: 0;
-  /* marks: crop;*/
+  marks: crop cross;
+}
+
+@page Intro {
+  @top-left {
+    font-size: 9pt;
+    content: flow(TopLeftContent);
+  }
+  @top-right {
+    content: flow(TopRightContent);
+  }
+  @bottom-left {
+    content: flow(BottomLeftContent);
+  }
+  @bottom-right {
+    font-size: 9pt;
+    content: counter(page);
+  }
+}
+
+@page months {
+  @top {
+    content: string(page-header-top);
+    font-family: arial;
+    font-size: 16pt;
+    font-weight: bold;
+  }
+  @top-left {
+    content: flow(TopLeftContent);
+  }
+  @top-right {
+    content: flow(TopRightContent);
+    text-align: right;
+    vertical-align: middle;
+  }
+  @bottom-left {
+    content: flow(BottomLeftContent);
+  }
+  @bottom-right {
+    content: counter(page);
+  }
+}
+
+@page responses {
+  @top {
+    content: string(page-header-top);
+    font-family: arial;
+    font-size: 16pt;
+    font-weight: bold;
+  }
+  @top-left {
+    content: flow(TopLeftContent);
+  }
+  @top-right {
+    content: "" flow(TopRightContent);
+  }
+  @bottom-left {
+    content: flow(BottomLeftContent);
+  }
+  @bottom-right {
+    content: counter(page);
+  }
+}
+
+#top-left-content {
+  margin-left: 2in;
+  flow: static(TopLeftContent);
+}
+
+#top-right-content {
+  width: 100%;
+  text-align: right;
+  vertical-align: top;
+  flow: static(TopRightContent);
+}
+
+#bottom-left-content {
+  flow: static(BottomLeftContent);
+}
+
+#bottom-right-content {
+  text-align: right;
+  flow: static(BottomRightContent);
+}
+
+#page-disclaimer {
+  position: relative;
+  width: 100%;
+  height: 10in;
+}
+
+#page-disclaimer > div {
+  position: absolute;
+  top: 5in;
+  width: 100%;
 }
 
 /*! bulma.io v0.7.1 | MIT License | github.com/jgthms/bulma */
@@ -46,7 +146,7 @@
   width: 0.625em;
 }
 
-.box:not(:last-child), .content:not(:last-child), .Index-Statement-Columns-Column-Content:not(:last-child), .notification:not(:last-child), .progress:not(:last-child), .table:not(:last-child), .table-container:not(:last-child), .title:not(:last-child), .Calendar-Header:not(:last-child), .ToC-Header:not(:last-child),
+.box:not(:last-child), .content:not(:last-child), .Index-Statement-Columns-Column-Content:not(:last-child), .notification:not(:last-child), .progress:not(:last-child), .table:not(:last-child), .table-container:not(:last-child), .title:not(:last-child), .ToC-Header:not(:last-child),
 .subtitle:not(:last-child), .block:not(:last-child), .highlight:not(:last-child), .breadcrumb:not(:last-child), .level:not(:last-child), .message:not(:last-child), .tabs:not(:last-child) {
   margin-bottom: 1.5rem;
 }
@@ -4474,7 +4574,7 @@ a.box:active {
   top: 0.5rem;
 }
 
-.notification .title, .notification .Calendar-Header, .notification .ToC-Header,
+.notification .title, .notification .ToC-Header,
 .notification .subtitle,
 .notification .content,
 .notification .Index-Statement-Columns-Column-Content {
@@ -5065,80 +5165,79 @@ a.tag:hover {
   text-decoration: underline;
 }
 
-.title, .Calendar-Header, .ToC-Header,
+.title, .ToC-Header,
 .subtitle {
   word-break: break-word;
 }
 
-.title em, .Calendar-Header em, .ToC-Header em,
+.title em, .ToC-Header em,
 .title span,
-.Calendar-Header span,
 .ToC-Header span,
 .subtitle em,
 .subtitle span {
   font-weight: inherit;
 }
 
-.title sub, .Calendar-Header sub, .ToC-Header sub,
+.title sub, .ToC-Header sub,
 .subtitle sub {
   font-size: 0.75em;
 }
 
-.title sup, .Calendar-Header sup, .ToC-Header sup,
+.title sup, .ToC-Header sup,
 .subtitle sup {
   font-size: 0.75em;
 }
 
-.title .tag, .Calendar-Header .tag, .ToC-Header .tag,
+.title .tag, .ToC-Header .tag,
 .subtitle .tag {
   vertical-align: middle;
 }
 
-.title, .Calendar-Header, .ToC-Header {
+.title, .ToC-Header {
   color: #363636;
   font-size: 2rem;
   font-weight: 600;
   line-height: 1.125;
 }
 
-.title strong, .Calendar-Header strong, .ToC-Header strong {
+.title strong, .ToC-Header strong {
   color: inherit;
   font-weight: inherit;
 }
 
-.title + .highlight, .Calendar-Header + .highlight, .ToC-Header + .highlight {
+.title + .highlight, .ToC-Header + .highlight {
   margin-top: -0.75rem;
 }
 
-.title:not(.is-spaced) + .subtitle, .Calendar-Header:not(.is-spaced) + .subtitle, .ToC-Header:not(.is-spaced) + .subtitle {
+.title:not(.is-spaced) + .subtitle, .ToC-Header:not(.is-spaced) + .subtitle {
   margin-top: -1.25rem;
 }
 
-.title.is-1, .is-1.Calendar-Header, .is-1.ToC-Header {
+.title.is-1, .is-1.ToC-Header {
   font-size: 3rem;
 }
 
-.title.is-2, .is-2.Calendar-Header, .is-2.ToC-Header {
+.title.is-2, .is-2.ToC-Header {
   font-size: 2.5rem;
 }
 
-.title.is-3, .is-3.Calendar-Header, .is-3.ToC-Header {
+.title.is-3, .is-3.ToC-Header {
   font-size: 2rem;
 }
 
-.title.is-4, .is-4.Calendar-Header, .is-4.ToC-Header {
+.title.is-4, .is-4.ToC-Header {
   font-size: 1.5rem;
 }
 
-.title.is-5, .is-5.Calendar-Header, .is-5.ToC-Header {
+.title.is-5, .is-5.ToC-Header {
   font-size: 1.25rem;
 }
 
-.title.is-6, .is-6.Calendar-Header, .is-6.ToC-Header {
+.title.is-6, .is-6.ToC-Header {
   font-size: 1rem;
 }
 
-.title.is-7, .is-7.Calendar-Header, .is-7.ToC-Header {
+.title.is-7, .is-7.ToC-Header {
   font-size: 0.75rem;
 }
 
@@ -5154,7 +5253,7 @@ a.tag:hover {
   font-weight: 600;
 }
 
-.subtitle:not(.is-spaced) + .title, .subtitle:not(.is-spaced) + .Calendar-Header, .subtitle:not(.is-spaced) + .ToC-Header {
+.subtitle:not(.is-spaced) + .title, .subtitle:not(.is-spaced) + .ToC-Header {
   margin-top: -1.25rem;
 }
 
@@ -5512,7 +5611,7 @@ a.dropdown-item.is-active {
   justify-content: center;
 }
 
-.level-item .title, .level-item .Calendar-Header, .level-item .ToC-Header,
+.level-item .title, .level-item .ToC-Header,
 .level-item .subtitle {
   margin-bottom: 0;
 }
@@ -8795,7 +8894,7 @@ label.panel-block:hover {
   color: inherit;
 }
 
-.hero.is-white .title, .hero.is-white .Calendar-Header, .hero.is-white .ToC-Header {
+.hero.is-white .title, .hero.is-white .ToC-Header {
   color: #0a0a0a;
 }
 
@@ -8873,7 +8972,7 @@ label.panel-block:hover {
   color: inherit;
 }
 
-.hero.is-black .title, .hero.is-black .Calendar-Header, .hero.is-black .ToC-Header {
+.hero.is-black .title, .hero.is-black .ToC-Header {
   color: white;
 }
 
@@ -8951,7 +9050,7 @@ label.panel-block:hover {
   color: inherit;
 }
 
-.hero.is-light .title, .hero.is-light .Calendar-Header, .hero.is-light .ToC-Header {
+.hero.is-light .title, .hero.is-light .ToC-Header {
   color: #363636;
 }
 
@@ -9029,7 +9128,7 @@ label.panel-block:hover {
   color: inherit;
 }
 
-.hero.is-dark .title, .hero.is-dark .Calendar-Header, .hero.is-dark .ToC-Header {
+.hero.is-dark .title, .hero.is-dark .ToC-Header {
   color: whitesmoke;
 }
 
@@ -9107,7 +9206,7 @@ label.panel-block:hover {
   color: inherit;
 }
 
-.hero.is-primary .title, .hero.is-primary .Calendar-Header, .hero.is-primary .ToC-Header {
+.hero.is-primary .title, .hero.is-primary .ToC-Header {
   color: #fff;
 }
 
@@ -9185,7 +9284,7 @@ label.panel-block:hover {
   color: inherit;
 }
 
-.hero.is-link .title, .hero.is-link .Calendar-Header, .hero.is-link .ToC-Header {
+.hero.is-link .title, .hero.is-link .ToC-Header {
   color: #fff;
 }
 
@@ -9263,7 +9362,7 @@ label.panel-block:hover {
   color: inherit;
 }
 
-.hero.is-info .title, .hero.is-info .Calendar-Header, .hero.is-info .ToC-Header {
+.hero.is-info .title, .hero.is-info .ToC-Header {
   color: #fff;
 }
 
@@ -9341,7 +9440,7 @@ label.panel-block:hover {
   color: inherit;
 }
 
-.hero.is-success .title, .hero.is-success .Calendar-Header, .hero.is-success .ToC-Header {
+.hero.is-success .title, .hero.is-success .ToC-Header {
   color: #fff;
 }
 
@@ -9419,7 +9518,7 @@ label.panel-block:hover {
   color: inherit;
 }
 
-.hero.is-warning .title, .hero.is-warning .Calendar-Header, .hero.is-warning .ToC-Header {
+.hero.is-warning .title, .hero.is-warning .ToC-Header {
   color: rgba(0, 0, 0, 0.7);
 }
 
@@ -9497,7 +9596,7 @@ label.panel-block:hover {
   color: inherit;
 }
 
-.hero.is-danger .title, .hero.is-danger .Calendar-Header, .hero.is-danger .ToC-Header {
+.hero.is-danger .title, .hero.is-danger .ToC-Header {
   color: #fff;
 }
 
@@ -9689,8 +9788,8 @@ label.panel-block:hover {
 .page, .ToC {
   border: 3pt;
   border-style: dotted;
-  width: 7in;
-  height: 9.5in;
+  width: 8in;
+  height: 10in;
 }
 
 .is-2-print {
@@ -9711,12 +9810,32 @@ label.panel-block:hover {
   }
 }
 
+.Intro {
+  page-break-before: always;
+}
+
+.Intro-Image {
+  margin: 6pt;
+}
+
+.Intro-Body {
+  margin-top: 6pt;
+}
+
+.Intro-Body p {
+  margin-bottom: 6pt;
+}
+
+.Intro-Body p:last {
+  margin-bottom: 0;
+}
+
 .is-one-seventh-print {
-  max-width: 1in;
+  max-width: 1.14286in;
 }
 
 .is-six-sevenths-print {
-  max-width: 6in;
+  max-width: 6.85714in;
 }
 
 .day-column {
@@ -9725,8 +9844,8 @@ label.panel-block:hover {
   flex-grow: 0;
   flex-shrink: 0;
   padding: 0.25rem;
-  max-width: 1in;
-  min-width: 1in;
+  max-width: 1.14286in;
+  min-width: 1.14286in;
 }
 
 .day-body {
@@ -9753,9 +9872,23 @@ label.panel-block:hover {
   font-size: 0.7rem;
 }
 
-.Calendar {
-  width: 9in;
-  margin: .25in;
+.HowTo {
+  page: howto;
+  counter-reset: page 2;
+}
+
+.Responses {
+  page: respones;
+}
+
+.Responses-Blurb {
+  margin-top: 24pt;
+  margin-bottom: 24pt;
+}
+
+.ResponseGroup {
+  page-break-after: always;
+  string-set: page-header-top attr(group);
 }
 
 .Calendar-Columns {
@@ -9769,33 +9902,37 @@ label.panel-block:hover {
   border-color: black;
   border-style: solid;
   border-radius: 5%;
-  width: 1in;
+  width: 1.14286in;
 }
 
+/*
 .Calendar-Day {
-  min-width: 1in;
-  max-width: 1in;
-  background-color: whitesmoke;
+    min-width: $day-column-width;
+    max-width: $day-column-width;
+
+    background-color: whitesmoke;
+
+    &-Name {
+        text-align: center;
+        min-width: $day-column-width;
+        max-width: $day-column-width;
+    }
+
+    &-Header {
+        height: 1rem;
+        font-weight: bold;
+    }
+
+    &-Body {
+        height: 6rem;
+    }
+
+    &-Footer {
+        height: 1rem;
+    }
 }
 
-.Calendar-Day-Name {
-  text-align: center;
-  min-width: 1in;
-  max-width: 1in;
-}
-
-.Calendar-Day-Header {
-  height: 12pt;
-}
-
-.Calendar-Day-Body {
-  height: 64pt;
-}
-
-.Calendar-Day-Footer {
-  height: 12pt;
-}
-
+*/
 /***************************************/
 .MyContainer {
   position: relative;
@@ -9838,7 +9975,7 @@ label.panel-block:hover {
 
 .Index-NavBar {
   font-size: 10pt;
-  min-width: 7in;
+  min-width: 8in;
 }
 
 .Index-NavBar-Previous, .Index-NavBar-Next {
@@ -9859,7 +9996,7 @@ label.panel-block:hover {
   flex-grow: 7;
   flex-shrink: 0;
   padding: .75rem;
-  min-width: 7in;
+  min-width: 8in;
   background-color: lightgreen;
 }
 
@@ -9869,7 +10006,7 @@ label.panel-block:hover {
   flex-grow: 7;
   flex-shrink: 0;
   padding: .75rem;
-  min-width: 7in;
+  min-width: 8in;
   text-align: center;
   background-color: #00d1b2;
 }
@@ -9892,8 +10029,8 @@ label.panel-block:hover {
 }
 
 .Index-Statement-Columns-Column-Content {
-  min-width: 3.36in;
-  max-width: 3.36in;
+  min-width: 3.84in;
+  max-width: 3.84in;
   padding: .5rem;
 }
 
@@ -9916,20 +10053,66 @@ label.panel-block:hover {
   margin-bottom: .25rem;
 }
 
+/*
 .Calendar {
+  @extend .container;
+  page: months;
+  page-break-after: always;
+  width: 7 * $day-column-width;
+  //margin: .25in;
+
+
+
+
+}
+
+.Calendar-Header {
+  font-size: 24pt;
+  text-align: center;
+  string-set: page-header-top content();
+
+  @media print {
+    display: none;
+  }
+}
+*/
+.Calendar {
+  page-break-before: always;
+  page: months;
+  string-set: page-header-top attr(month);
   font-family: arial;
   font-size: 8pt;
+  width: 8in;
+}
+
+@media print {
+  .Calendar {
+    margin-top: 24pt;
+  }
+}
+
+@media screen {
+  .Calendar {
+    margin-top: 32pt;
+  }
 }
 
 .Calendar-Container {
   position: relative;
-  width: 7in;
+  width: 8in;
   margin: 0.25in;
 }
 
 .Calendar-Header {
   font-size: 24pt;
   text-align: center;
+  margin-bottom: 6pt;
+}
+
+@media print {
+  .Calendar-Header {
+    display: none;
+  }
 }
 
 .Calendar-Footer {
@@ -9948,37 +10131,45 @@ label.panel-block:hover {
   border-color: black;
   border-style: solid;
   border-radius: 5%;
-  width: 1in;
+  width: 1.14286in;
 }
 
 .Calendar-Day {
   flex-grow: 0;
   flex-shrink: 0;
+  background-color: whitesmoke;
   border-width: 1pt;
   border-color: black;
   border-style: solid;
   border-radius: 5%;
-  min-width: 1in;
-  max-width: 1in;
+  min-width: 1.14286in;
+  max-width: 1.14286in;
   padding-left: 6pt;
   padding-right: 6pt;
 }
 
 .Calendar-Day-Name {
+  min-height: 12pt;
+  max-height: 12pt;
+  font-weight: bold;
   text-align: center;
 }
 
 .Calendar-Day-Header {
-  height: 12pt;
+  font-weight: bold;
+  min-height: 12pt;
+  max-height: 12pt;
 }
 
 .Calendar-Day-Body {
-  height: 96pt;
+  min-height: 86pt;
+  max-height: 86pt;
+  overflow: hidden;
 }
 
 .Calendar-Day-Footer {
-  height: 12pt;
-  padding-bottom: 17pt;
+  min-height: 12pt;
+  max-height: 12pt;
 }
 
 .Calendar-Day-Notes {
@@ -9998,7 +10189,7 @@ label.panel-block:hover {
 }
 
 .ToC {
-  margin: 0.75in;
+  margin: 0.25in;
 }
 
 .ToC-Container {
@@ -10035,4 +10226,8 @@ label.panel-block:hover {
   border-width: 1pt;
   border-style: solid;
   padding: .5rem;
+}
+
+td {
+  page-break-inside: avoid;
 }
