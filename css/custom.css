@@ -96,16 +96,28 @@
   flow: static(BottomRightContent);
 }
 
-#page-disclaimer {
+.DisclaimerPage {
   position: relative;
   width: 100%;
   height: 10in;
 }
 
-#page-disclaimer > div {
+.DisclaimerPage > div {
   position: absolute;
   top: 5in;
   width: 100%;
+}
+
+.DisclaimerPage-Address p {
+  margin-bottom: 3 pt;
+}
+
+.DisclaimerPage-Address p:last {
+  margin-bottom: 0pt;
+}
+
+.DisclaimerPage-Copyright {
+  margin-top: 9pt;
 }
 
 /*! bulma.io v0.7.1 | MIT License | github.com/jgthms/bulma */
@@ -9818,6 +9830,24 @@ label.panel-block:hover {
   margin: 6pt;
 }
 
+.Intro-Image .PictureContainer {
+  padding: 1in;
+  text-align: center;
+}
+
+.Intro-Image .PictureContainer img {
+  object-fit: cover;
+  width: 100%;
+  height: auto;
+}
+
+.Intro-Title {
+  font-size: 24;
+  font-weight: bold;
+  margin-top: 12pt;
+  margin-bottom: 12pt;
+}
+
 .Intro-Body {
   margin-top: 6pt;
 }
@@ -10134,6 +10164,24 @@ label.panel-block:hover {
   width: 1.14286in;
 }
 
+.Calendar-DayName {
+  flex-grow: 0;
+  flex-shrink: 0;
+  border-style: none;
+  border-width: 0pt;
+  min-width: 1.14286in;
+  max-width: 1.14286in;
+  padding-left: 6pt;
+  padding-right: 6pt;
+}
+
+.Calendar-DayName-Name {
+  min-height: 12pt;
+  max-height: 12pt;
+  font-weight: bold;
+  text-align: center;
+}
+
 .Calendar-Day {
   flex-grow: 0;
   flex-shrink: 0;
@@ -10146,13 +10194,6 @@ label.panel-block:hover {
   max-width: 1.14286in;
   padding-left: 6pt;
   padding-right: 6pt;
-}
-
-.Calendar-Day-Name {
-  min-height: 12pt;
-  max-height: 12pt;
-  font-weight: bold;
-  text-align: center;
 }
 
 .Calendar-Day-Header {
@@ -10230,4 +10271,31 @@ label.panel-block:hover {
 
 td {
   page-break-inside: avoid;
+}
+
+.PictureContainer {
+  padding: 12pt;
+  text-align: center;
+  width: 100%;
+  height: auto;
+  margin: auto;
+}
+
+.PictureContainer > img {
+  object-fit: cover;
+}
+
+.TitlePage-Image {
+  text-align: center;
+  margin: auto;
+}
+
+.TitlePage-Image .PictureContainer {
+  text-align: center;
+}
+
+.TitlePage-Image .PictureContainer img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
 }
