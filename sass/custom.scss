@@ -4,7 +4,7 @@ $page-width: 8.5in;
 $page-height: 11in;
 
 $page-margin-lr: 0.25in;
-$page-margin-tb: 0.5in;
+$page-margin-tb: 0.25in;
 
 
 
@@ -12,6 +12,10 @@ $content-width: $page-width - (2 * $page-margin-lr);
 
 $day-column-width: $content-width / 7.0 * $page-pixels-per-inch;
 
+$CalendarDayHeaderHeight: 12pt;
+$CalendarDayBodyHeight: 86pt;
+$CalendarDayFooterHeight: 12pt;
+$CalendarNoteHeight: $CalendarDayHeaderHeight + $CalendarDayBodyHeight + $CalendarDayFooterHeight + 18pt;
 
 .page-assets {
 
@@ -130,7 +134,7 @@ $day-column-width: $content-width / 7.0 * $page-pixels-per-inch;
   &-Address {
     p {
       margin-bottom: 3 pt;
-      &:last {
+      &:last-child {
         margin-bottom: 0pt;
       }
     }
@@ -269,6 +273,17 @@ $day-column-width: $content-width / 7.0 * $page-pixels-per-inch;
 .Responses {
   page: respones;
 
+  &-Title {
+    font-size: 1.2em;
+    margin-bottom: 6pt;
+    font-weight: bold;
+    text-align: left;
+    color: #003399;
+    padding: 0;
+
+
+  }
+
   &-Blurb {
     margin-top: 24pt;
     margin-bottom: 24pt;
@@ -278,7 +293,19 @@ $day-column-width: $content-width / 7.0 * $page-pixels-per-inch;
 .ResponseGroup {
 
   page-break-after: always;
-  string-set: page-header-top attr(group);
+  //string-set: page-header-top attr(group);
+
+
+  &-Title {
+    font-size: 1.2em;
+    margin-bottom: 6pt;
+    font-weight: bold;
+    text-align: left;
+    color: #003399;
+    padding: 0;    
+  }
+
+
   
 }
 
@@ -581,6 +608,30 @@ $day-column-width: $content-width / 7.0 * $page-pixels-per-inch;
     }
   }
 
+
+
+  &-Note {
+    flex-grow: 0;
+    flex-shrink: 0;
+
+    background-color: lightblue;
+    
+    font-family: cursive;
+    font-weight: bold;
+    font-size: 10pt;
+
+    border-width: 1pt;
+    border-color: black;
+    border-style: solid;
+    border-radius: 5%;
+
+    min-width: $day-column-width;
+    max-width: $day-column-width;
+    min-height: $CalendarNoteHeight;
+    max-height: $CalendarNoteHeight;
+    padding: 6pt;
+  }
+
   &-Day {
     flex-grow: 0;
     flex-shrink: 0;
@@ -594,26 +645,28 @@ $day-column-width: $content-width / 7.0 * $page-pixels-per-inch;
 
     min-width: $day-column-width;
     max-width: $day-column-width;
-    padding-left: 6pt;
-    padding-right: 6pt;
+    padding: 6pt;
     
 
 
     &-Header {
       font-weight: bold;
-      min-height: 12pt;
-      max-height: 12pt;
+      min-height: $CalendarDayHeaderHeight;
+      max-height: $CalendarDayHeaderHeight;
+      padding-bottom:3pt;
     }
 
     &-Body {
-      min-height: 86pt;
-      max-height: 86pt;    
+      min-height: $CalendarDayBodyHeight;
+      max-height: $CalendarDayBodyHeight;    
       overflow: hidden;  
     }
 
     &-Footer {
-      min-height: 12pt;
-      max-height: 12pt;
+      padding-top: 3pt;
+      min-height: 1$CalendarDayFooterHeight;
+      max-height: $CalendarDayFooterHeight;
+      font-weight: bold;
 
 //      padding-bottom: 17pt;
     }    
@@ -721,5 +774,26 @@ td {
     }
   }
 
+
+}
+
+
+
+.Page {
+
+  @media screen {
+     display: none;
+
+  }
+
+  &:target {
+    display: block;
+  }
+
+  .Pager {
+    @media print {
+      display: none;
+    }
+  }
 
 }

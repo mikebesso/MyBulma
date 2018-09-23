@@ -6,10 +6,10 @@
 
 @page {
   size: 8.5in 11in portrait;
-  margin-top: 0.5in;
+  margin-top: 0.25in;
   margin-left: 0.25in;
   margin-right: 0.25in;
-  margin-bottom: 0.5in;
+  margin-bottom: 0.25in;
   padding: 0;
   marks: crop cross;
 }
@@ -112,7 +112,7 @@
   margin-bottom: 3 pt;
 }
 
-.DisclaimerPage-Address p:last {
+.DisclaimerPage-Address p:last-child {
   margin-bottom: 0pt;
 }
 
@@ -9801,7 +9801,7 @@ label.panel-block:hover {
   border: 3pt;
   border-style: dotted;
   width: 8in;
-  height: 10in;
+  height: 10.5in;
 }
 
 .is-2-print {
@@ -9911,6 +9911,15 @@ label.panel-block:hover {
   page: respones;
 }
 
+.Responses-Title {
+  font-size: 1.2em;
+  margin-bottom: 6pt;
+  font-weight: bold;
+  text-align: left;
+  color: #003399;
+  padding: 0;
+}
+
 .Responses-Blurb {
   margin-top: 24pt;
   margin-bottom: 24pt;
@@ -9918,7 +9927,15 @@ label.panel-block:hover {
 
 .ResponseGroup {
   page-break-after: always;
-  string-set: page-header-top attr(group);
+}
+
+.ResponseGroup-Title {
+  font-size: 1.2em;
+  margin-bottom: 6pt;
+  font-weight: bold;
+  text-align: left;
+  color: #003399;
+  padding: 0;
 }
 
 .Calendar-Columns {
@@ -10182,6 +10199,24 @@ label.panel-block:hover {
   text-align: center;
 }
 
+.Calendar-Note {
+  flex-grow: 0;
+  flex-shrink: 0;
+  background-color: lightblue;
+  font-family: cursive;
+  font-weight: bold;
+  font-size: 10pt;
+  border-width: 1pt;
+  border-color: black;
+  border-style: solid;
+  border-radius: 5%;
+  min-width: 1.14286in;
+  max-width: 1.14286in;
+  min-height: 128pt;
+  max-height: 128pt;
+  padding: 6pt;
+}
+
 .Calendar-Day {
   flex-grow: 0;
   flex-shrink: 0;
@@ -10192,14 +10227,14 @@ label.panel-block:hover {
   border-radius: 5%;
   min-width: 1.14286in;
   max-width: 1.14286in;
-  padding-left: 6pt;
-  padding-right: 6pt;
+  padding: 6pt;
 }
 
 .Calendar-Day-Header {
   font-weight: bold;
   min-height: 12pt;
   max-height: 12pt;
+  padding-bottom: 3pt;
 }
 
 .Calendar-Day-Body {
@@ -10209,8 +10244,10 @@ label.panel-block:hover {
 }
 
 .Calendar-Day-Footer {
-  min-height: 12pt;
+  padding-top: 3pt;
+  min-height: 1 12pt;
   max-height: 12pt;
+  font-weight: bold;
 }
 
 .Calendar-Day-Notes {
@@ -10298,4 +10335,20 @@ td {
   width: 100%;
   height: auto;
   object-fit: cover;
+}
+
+@media screen {
+  .Page {
+    display: none;
+  }
+}
+
+.Page:target {
+  display: block;
+}
+
+@media print {
+  .Page .Pager {
+    display: none;
+  }
 }
