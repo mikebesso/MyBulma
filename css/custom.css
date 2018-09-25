@@ -10203,9 +10203,8 @@ label.panel-block:hover {
   flex-grow: 0;
   flex-shrink: 0;
   background-color: lightblue;
-  font-family: cursive;
-  font-weight: bold;
-  font-size: 10pt;
+  font-family: arial;
+  font-size: 8pt;
   border-width: 1pt;
   border-color: black;
   border-style: solid;
