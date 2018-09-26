@@ -9856,7 +9856,7 @@ label.panel-block:hover {
   margin-bottom: 6pt;
 }
 
-.Intro-Body p:last {
+.Intro-Body p:last-child {
   margin-bottom: 0;
 }
 
