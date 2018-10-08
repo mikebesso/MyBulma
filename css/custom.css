@@ -9798,8 +9798,6 @@ label.panel-block:hover {
 }
 
 .page, .ToC {
-  border: 3pt;
-  border-style: dotted;
   width: 8in;
   height: 10.5in;
 }
@@ -10025,7 +10023,7 @@ label.panel-block:hover {
   min-width: 8in;
 }
 
-.Index-NavBar-Previous, .Index-NavBar-Next {
+.Index-NavBar-Previous, .Index-NavBar-Next, .Index-NavBar-ToC {
   max-width: 8rem;
   text-align: center !important;
   display: block;
@@ -10269,6 +10267,10 @@ label.panel-block:hover {
   margin: 0.25in;
 }
 
+.ToC-Header {
+  margin-top: 2rem;
+}
+
 .ToC-Container {
   position: relative;
   width: 100%;
@@ -10344,6 +10346,14 @@ td {
 
 .Page:target {
   display: block;
+}
+
+.Page .Pager {
+  width: 100%;
+  padding-top: 1rem;
+  padding-bottom: 2rem;
+  margin-top: 1rem;
+  height: 3rem;
 }
 
 @media print {

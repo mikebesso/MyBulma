@@ -159,8 +159,6 @@ $CalendarNoteHeight: $CalendarDayHeaderHeight + $CalendarDayBodyHeight + $Calend
  }
 
  .page {
-    border: 3pt;
-    border-style: dotted;
     width: $content-width;
     height: $page-height - (2 * $page-margin-tb);
  }
@@ -410,7 +408,7 @@ $CalendarNoteHeight: $CalendarDayHeaderHeight + $CalendarDayBodyHeight + $Calend
     font-size: 10pt;
     min-width: $content-width;
       
-      &-Previous, &-Next {
+      &-Previous, &-Next, &-ToC {
         max-width: 8rem;
         text-align: center!important;
         display: block;
@@ -702,6 +700,7 @@ $CalendarNoteHeight: $CalendarDayHeaderHeight + $CalendarDayBodyHeight + $Calend
     
     &-Header {
         @extend .title;
+        margin-top: 2rem;
     }
 
     &-Container
@@ -794,6 +793,11 @@ td {
     @media print {
       display: none;
     }
+    width: 100%;
+    padding-top: 1rem;
+    padding-bottom: 2rem;
+    margin-top: 1rem;
+    height: 3rem;
   }
 
 }
