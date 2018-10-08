@@ -10037,9 +10037,9 @@ label.panel-block:hover {
 
 .Index-NavBar-Breadcrumb {
   display: block;
-  flex-basis: 0;
-  flex-grow: 7;
-  flex-shrink: 0;
+  flex-basis: auto;
+  flex-grow: 1;
+  flex-shrink: 1;
   padding: .75rem;
   min-width: 8in;
   background-color: lightgreen;
@@ -10047,11 +10047,10 @@ label.panel-block:hover {
 
 .Index-NavBar-Title {
   display: block;
-  flex-basis: 0;
-  flex-grow: 7;
-  flex-shrink: 0;
+  flex-basis: auto;
+  flex-grow: 1;
+  flex-shrink: 1;
   padding: .75rem;
-  min-width: 8in;
   text-align: center;
   background-color: #00d1b2;
 }
