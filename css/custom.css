@@ -10125,7 +10125,7 @@ label.panel-block:hover {
   page: months;
   string-set: page-header-top attr(month);
   font-family: arial;
-  font-size: 8pt;
+  font-size: 7pt;
   width: 8in;
 }
 
@@ -10335,6 +10335,14 @@ td {
   width: 100%;
   height: auto;
   object-fit: cover;
+}
+
+.SourceSeeAlso {
+  margin-top: 0.25rem;
+}
+
+.EditInSharePoint {
+  margin-top: 1rem;
 }
 
 @media screen {

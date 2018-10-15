@@ -536,7 +536,7 @@ $CalendarNoteHeight: $CalendarDayHeaderHeight + $CalendarDayBodyHeight + $Calend
   page: months;
   string-set: page-header-top attr(month);
   font-family: arial;
-  font-size: 8pt;
+  font-size: 7pt;
   width: 7 * $day-column-width;
   
   @media print {
@@ -776,7 +776,13 @@ td {
 
 }
 
+.SourceSeeAlso {
+  margin-top: 0.25rem;
+}
 
+.EditInSharePoint {
+  margin-top: 1rem; 
+}
 
 .Page {
 
