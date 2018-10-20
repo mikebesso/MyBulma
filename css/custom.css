@@ -6,17 +6,18 @@
 
 @page {
   size: 8.5in 11in portrait;
-  margin-top: 0.25in;
+  margin-top: 0.5in;
+  margin-bottom: 0.25in;
   margin-left: 0.25in;
   margin-right: 0.25in;
-  margin-bottom: 0.25in;
-  padding: 0;
+  padding: 0in;
   marks: crop cross;
 }
 
 @page Intro {
   @top-left {
-    font-size: 9pt;
+    text-align: right;
+    vertical-align: middle;
     content: flow(TopLeftContent);
   }
   @top-right {
@@ -33,18 +34,20 @@
 
 @page months {
   @top {
-    content: string(page-header-top);
     font-family: arial;
     font-size: 16pt;
     font-weight: bold;
+    content: string(page-header-top);
   }
   @top-left {
+    text-align: right;
+    vertical-align: middle;
     content: flow(TopLeftContent);
   }
   @top-right {
-    content: flow(TopRightContent);
     text-align: right;
     vertical-align: middle;
+    content: flow(TopRightContent);
   }
   @bottom-left {
     content: flow(BottomLeftContent);
@@ -62,10 +65,14 @@
     font-weight: bold;
   }
   @top-left {
+    text-align: right;
+    vertical-align: middle;
     content: flow(TopLeftContent);
   }
   @top-right {
-    content: "" flow(TopRightContent);
+    text-align: right;
+    vertical-align: middle;
+    content: flow(TopRightContent);
   }
   @bottom-left {
     content: flow(BottomLeftContent);
@@ -75,15 +82,24 @@
   }
 }
 
+/*
+.zircle-image{
+  position: absolute;
+  right: 0in;
+  top: 0in;
+}
+*/
 #top-left-content {
-  margin-left: 2in;
   flow: static(TopLeftContent);
+}
+
+#top-left-content > div {
+  position: relative;
 }
 
 #top-right-content {
   width: 100%;
   text-align: right;
-  vertical-align: top;
   flow: static(TopRightContent);
 }
 
@@ -9799,7 +9815,7 @@ label.panel-block:hover {
 
 .page, .ToC {
   width: 8in;
-  height: 10.5in;
+  height: 10.25in;
 }
 
 .is-2-print {
@@ -9809,7 +9825,6 @@ label.panel-block:hover {
 @media screen {
   .is-2-print {
     max-width: 1in;
-    background-color: green;
   }
 }
 
@@ -9821,6 +9836,7 @@ label.panel-block:hover {
 }
 
 .Intro {
+  page: Intro;
   page-break-before: always;
 }
 
@@ -9858,22 +9874,14 @@ label.panel-block:hover {
   margin-bottom: 0;
 }
 
-.is-one-seventh-print {
-  max-width: 1.14286in;
-}
-
-.is-six-sevenths-print {
-  max-width: 6.85714in;
-}
-
 .day-column {
   display: block;
   flex-basis: 0;
   flex-grow: 0;
   flex-shrink: 0;
   padding: 0.25rem;
-  max-width: 1.14286in;
-  min-width: 1.14286in;
+  max-width: 0.97619in;
+  min-width: 0.97619in;
 }
 
 .day-body {
@@ -9906,7 +9914,7 @@ label.panel-block:hover {
 }
 
 .Responses {
-  page: respones;
+  page: responses;
 }
 
 .Responses-Title {
@@ -9938,6 +9946,12 @@ label.panel-block:hover {
 
 .Calendar-Columns {
   flex-wrap: wrap;
+  margin: 0;
+  /*
+    @media print {
+      margin-top: 1in;  
+    }
+*/
 }
 
 .Calendar-Column {
@@ -9950,35 +9964,6 @@ label.panel-block:hover {
   width: 1.14286in;
 }
 
-/*
-.Calendar-Day {
-    min-width: $day-column-width;
-    max-width: $day-column-width;
-
-    background-color: whitesmoke;
-
-    &-Name {
-        text-align: center;
-        min-width: $day-column-width;
-        max-width: $day-column-width;
-    }
-
-    &-Header {
-        height: 1rem;
-        font-weight: bold;
-    }
-
-    &-Body {
-        height: 6rem;
-    }
-
-    &-Footer {
-        height: 1rem;
-    }
-}
-
-*/
-/***************************************/
 .MyContainer {
   position: relative;
 }
@@ -10097,41 +10082,25 @@ label.panel-block:hover {
   margin-bottom: .25rem;
 }
 
-/*
-.Calendar {
-  @extend .container;
-  page: months;
-  page-break-after: always;
-  width: 7 * $day-column-width;
-  //margin: .25in;
-
-
-
-
-}
-
-.Calendar-Header {
-  font-size: 24pt;
-  text-align: center;
-  string-set: page-header-top content();
-
-  @media print {
-    display: none;
-  }
-}
-*/
 .Calendar {
   page-break-before: always;
   page: months;
   string-set: page-header-top attr(month);
   font-family: arial;
   font-size: 7pt;
-  width: 8in;
+  width: 8.05714in;
+  /*
+  &-Container {
+    position: relative;
+    width: 7 * $day-column-width;
+    margin: 0.25in;
+  }
+  */
 }
 
 @media print {
   .Calendar {
-    margin-top: 24pt;
+    margin-top: 6pt;
   }
 }
 
@@ -10139,12 +10108,6 @@ label.panel-block:hover {
   .Calendar {
     margin-top: 32pt;
   }
-}
-
-.Calendar-Container {
-  position: relative;
-  width: 8in;
-  margin: 0.25in;
 }
 
 .Calendar-Header {

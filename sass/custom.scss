@@ -4,13 +4,16 @@ $page-width: 8.5in;
 $page-height: 11in;
 
 $page-margin-lr: 0.25in;
-$page-margin-tb: 0.25in;
+$page-margin-bottom: 0.25in;
+$page-margin-top: 0.5in;
 
+$top-area-height: 0in;
+$top-area-valign: middle;
 
 
 $content-width: $page-width - (2 * $page-margin-lr);
 
-$day-column-width: $content-width / 7.0 * $page-pixels-per-inch;
+$day-column-width: $content-width / 7.0;
 
 $CalendarDayHeaderHeight: 12pt;
 $CalendarDayBodyHeight: 86pt;
@@ -24,19 +27,22 @@ $CalendarNoteHeight: $CalendarDayHeaderHeight + $CalendarDayBodyHeight + $Calend
   }
 }
 
+
 @page{
     size: $page-width $page-height portrait;
-    margin-top: $page-margin-tb;
+    margin-top: $page-margin-top;
+    margin-bottom: $page-margin-bottom;
     margin-left: $page-margin-lr;
     margin-right: $page-margin-lr;
-    margin-bottom: $page-margin-tb;
-    padding: 0;
+    padding: 0in;  
     marks: crop cross;
+    
 }
 
 @page Intro{
   @top-left{
-    font-size: 9pt;
+    text-align: right;
+    vertical-align: $top-area-valign;
     content: flow(TopLeftContent);
   }
   @top-right{
@@ -53,18 +59,20 @@ $CalendarNoteHeight: $CalendarDayHeaderHeight + $CalendarDayBodyHeight + $Calend
 
 @page months{
   @top{ 
-    content: string(page-header-top);
     font-family: arial;
     font-size: 16pt;
     font-weight: bold;
+    content: string(page-header-top);
   }
   @top-left{
+    text-align: right;
+    vertical-align: $top-area-valign;
     content: flow(TopLeftContent);
   }
   @top-right{
-    content: flow(TopRightContent);
     text-align: right;
-    vertical-align: middle;
+    vertical-align: $top-area-valign;
+    content: flow(TopRightContent);
   }
   @bottom-left{
     content: flow(BottomLeftContent);
@@ -84,10 +92,14 @@ $CalendarNoteHeight: $CalendarDayHeaderHeight + $CalendarDayBodyHeight + $Calend
   }
 
   @top-left{
+    text-align: right;
+    vertical-align: $top-area-valign;
     content: flow(TopLeftContent);
   }
   @top-right{
-    content: "" flow(TopRightContent);
+    text-align: right;
+    vertical-align: $top-area-valign;
+    content: flow(TopRightContent);
   }
   @bottom-left{
     content: flow(BottomLeftContent);
@@ -97,15 +109,27 @@ $CalendarNoteHeight: $CalendarDayHeaderHeight + $CalendarDayBodyHeight + $Calend
   }
 }
 
+/*
+.zircle-image{
+  position: absolute;
+  right: 0in;
+  top: 0in;
+}
+*/
+
 #top-left-content {
-  margin-left: 2in;
+  //position: relative;
   flow: static(TopLeftContent);
+
+    > div {
+      position: relative;
+    }
 }
 
 #top-right-content {
+  //position: relative;
   width: 100%;
   text-align: right;
-  vertical-align: top;
   flow: static(TopRightContent);
 }
 
@@ -160,7 +184,7 @@ $CalendarNoteHeight: $CalendarDayHeaderHeight + $CalendarDayBodyHeight + $Calend
 
  .page {
     width: $content-width;
-    height: $page-height - (2 * $page-margin-tb);
+    height: $page-height - ($page-margin-top + $page-margin-bottom);
  }
 
 
@@ -171,8 +195,7 @@ $CalendarNoteHeight: $CalendarDayHeaderHeight + $CalendarDayBodyHeight + $Calend
  @media screen {
     .is-2-print {
         max-width: 1in;
-        background-color: green;
-    }
+     }
 }
 
  @media print {
@@ -184,6 +207,7 @@ $CalendarNoteHeight: $CalendarDayHeaderHeight + $CalendarDayBodyHeight + $Calend
 
 .Intro {
 
+  page: Intro;
   page-break-before: always;
 
   &-Image {
@@ -224,13 +248,6 @@ $CalendarNoteHeight: $CalendarDayHeaderHeight + $CalendarDayBodyHeight + $Calend
 
 
 
-.is-one-seventh-print {
-    max-width: $day-column-width;
-}
-
-.is-six-sevenths-print {
-    max-width: 6 * $day-column-width;
-}
 
 .day-column {
     display: block;
@@ -238,8 +255,8 @@ $CalendarNoteHeight: $CalendarDayHeaderHeight + $CalendarDayBodyHeight + $Calend
     flex-grow: 0;
     flex-shrink: 0;
     padding: 0.25rem;
-    max-width: $day-column-width;
-    min-width: $day-column-width;
+    max-width: $day-column-width - 12pt;
+    min-width: $day-column-width - 12pt;
 
 }
 
@@ -269,7 +286,7 @@ $CalendarNoteHeight: $CalendarDayHeaderHeight + $CalendarDayBodyHeight + $Calend
 }
 
 .Responses {
-  page: respones;
+  page: responses;
 
   &-Title {
     font-size: 1.2em;
@@ -313,6 +330,14 @@ $CalendarNoteHeight: $CalendarDayHeaderHeight + $CalendarDayBodyHeight + $Calend
     @extend .columns;
     flex-wrap: wrap;
 
+    margin: 0;
+
+    /*
+    @media print {
+      margin-top: 1in;  
+    }
+*/
+
 }
 
 
@@ -331,35 +356,6 @@ $CalendarNoteHeight: $CalendarDayHeaderHeight + $CalendarDayBodyHeight + $Calend
  
 }
 
-/*
-.Calendar-Day {
-    min-width: $day-column-width;
-    max-width: $day-column-width;
-
-    background-color: whitesmoke;
-
-    &-Name {
-        text-align: center;
-        min-width: $day-column-width;
-        max-width: $day-column-width;
-    }
-
-    &-Header {
-        height: 1rem;
-        font-weight: bold;
-    }
-
-    &-Body {
-        height: 6rem;
-    }
-
-    &-Footer {
-        height: 1rem;
-    }
-}
-
-*/
-/***************************************/
 
 
 
@@ -506,29 +502,6 @@ $CalendarNoteHeight: $CalendarDayHeaderHeight + $CalendarDayBodyHeight + $Calend
 }
 
 
-/*
-.Calendar {
-  @extend .container;
-  page: months;
-  page-break-after: always;
-  width: 7 * $day-column-width;
-  //margin: .25in;
-
-
-
-
-}
-
-.Calendar-Header {
-  font-size: 24pt;
-  text-align: center;
-  string-set: page-header-top content();
-
-  @media print {
-    display: none;
-  }
-}
-*/
 
 .Calendar {
   @extend .container;
@@ -537,20 +510,22 @@ $CalendarNoteHeight: $CalendarDayHeaderHeight + $CalendarDayBodyHeight + $Calend
   string-set: page-header-top attr(month);
   font-family: arial;
   font-size: 7pt;
-  width: 7 * $day-column-width;
+  width: 7.05 * $day-column-width;
   
   @media print {
-    margin-top: 24pt;
+    margin-top: 6pt;
   }
   @media screen {
     margin-top: 32pt;
   }
 
+  /*
   &-Container {
     position: relative;
     width: 7 * $day-column-width;
     margin: 0.25in;
   }
+  */
 
   &-Header {
     font-size: 24pt;
