@@ -10287,16 +10287,15 @@ td {
 
 .TitlePage-Image {
   text-align: center;
-  margin: auto;
 }
 
 .TitlePage-Image .PictureContainer {
-  text-align: center;
+  height: 6.9in;
 }
 
 .TitlePage-Image .PictureContainer img {
-  width: 100%;
-  height: auto;
+  height: 100%;
+  width: auto;
   object-fit: cover;
 }
 
@@ -10330,4 +10329,9 @@ td {
   .Page .Pager {
     display: none;
   }
+}
+
+.EmphasizeStatement {
+  color: blue;
+  font-weight: bold;
 }

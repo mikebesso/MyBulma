@@ -735,14 +735,14 @@ td {
 
   &-Image {
     text-align: center;
-    margin:auto;
 
     .PictureContainer {
-      text-align: center;
+
+      height: 6.9in;
 
       img {
-        width: 100%;
-        height: auto;
+        height: 100%;
+        width: auto;
         object-fit: cover;
       }
     }
@@ -781,4 +781,9 @@ td {
     height: 3rem;
   }
 
+}
+
+.EmphasizeStatement {
+  color: blue;
+  font-weight: bold;
 }
