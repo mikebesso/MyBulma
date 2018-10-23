@@ -6,7 +6,7 @@
 
 @page {
   size: 8.5in 11in portrait;
-  margin-top: 0.5in;
+  margin-top: 0.75in;
   margin-bottom: 0.25in;
   margin-left: 0.25in;
   margin-right: 0.25in;
@@ -58,12 +58,14 @@
 }
 
 @page responses {
-  @top {
+  /*
+  @top{ 
     content: string(page-header-top);
     font-family: arial;
     font-size: 16pt;
     font-weight: bold;
   }
+*/
   @top-left {
     text-align: right;
     vertical-align: middle;
@@ -9815,7 +9817,7 @@ label.panel-block:hover {
 
 .page, .ToC {
   width: 8in;
-  height: 10.25in;
+  height: 10in;
 }
 
 .is-2-print {
@@ -10100,7 +10102,7 @@ label.panel-block:hover {
 
 @media print {
   .Calendar {
-    margin-top: 6pt;
+    margin-top: 0pt;
   }
 }
 
@@ -10164,15 +10166,15 @@ label.panel-block:hover {
   flex-shrink: 0;
   background-color: lightblue;
   font-family: arial;
-  font-size: 8pt;
+  font-size: 6.5pt;
   border-width: 1pt;
   border-color: black;
   border-style: solid;
   border-radius: 5%;
   min-width: 1.14286in;
   max-width: 1.14286in;
-  min-height: 128pt;
-  max-height: 128pt;
+  min-height: 118pt;
+  max-height: 118pt;
   padding: 6pt;
 }
 
@@ -10191,22 +10193,26 @@ label.panel-block:hover {
 
 .Calendar-Day-Header {
   font-weight: bold;
-  min-height: 12pt;
-  max-height: 12pt;
-  padding-bottom: 3pt;
+  min-height: 10pt;
+  max-height: 10pt;
+  padding-bottom: 2pt;
+  overflow: hidden;
 }
 
 .Calendar-Day-Body {
-  min-height: 86pt;
-  max-height: 86pt;
+  min-height: 80pt;
+  max-height: 80pt;
+  font-size: 6.5pt;
   overflow: hidden;
 }
 
 .Calendar-Day-Footer {
-  padding-top: 3pt;
-  min-height: 1 12pt;
-  max-height: 12pt;
+  padding-top: 2pt;
+  min-height: 1 10pt;
+  max-height: 10pt;
+  font-size: 6pt;
   font-weight: bold;
+  overflow: hidden;
 }
 
 .Calendar-Day-Notes {

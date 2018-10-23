@@ -5,7 +5,7 @@ $page-height: 11in;
 
 $page-margin-lr: 0.25in;
 $page-margin-bottom: 0.25in;
-$page-margin-top: 0.5in;
+$page-margin-top: 0.75in;
 
 $top-area-height: 0in;
 $top-area-valign: middle;
@@ -15,9 +15,9 @@ $content-width: $page-width - (2 * $page-margin-lr);
 
 $day-column-width: $content-width / 7.0;
 
-$CalendarDayHeaderHeight: 12pt;
-$CalendarDayBodyHeight: 86pt;
-$CalendarDayFooterHeight: 12pt;
+$CalendarDayHeaderHeight: 10pt;
+$CalendarDayBodyHeight: 80pt;
+$CalendarDayFooterHeight: 10pt;
 $CalendarNoteHeight: $CalendarDayHeaderHeight + $CalendarDayBodyHeight + $CalendarDayFooterHeight + 18pt;
 
 .page-assets {
@@ -83,14 +83,14 @@ $CalendarNoteHeight: $CalendarDayHeaderHeight + $CalendarDayBodyHeight + $Calend
 }
 
 @page responses{
-
+/*
   @top{ 
     content: string(page-header-top);
     font-family: arial;
     font-size: 16pt;
     font-weight: bold;
   }
-
+*/
   @top-left{
     text-align: right;
     vertical-align: $top-area-valign;
@@ -513,7 +513,7 @@ $CalendarNoteHeight: $CalendarDayHeaderHeight + $CalendarDayBodyHeight + $Calend
   width: 7.05 * $day-column-width;
   
   @media print {
-    margin-top: 6pt;
+    margin-top: 0pt;
   }
   @media screen {
     margin-top: 32pt;
@@ -591,7 +591,7 @@ $CalendarNoteHeight: $CalendarDayHeaderHeight + $CalendarDayBodyHeight + $Calend
     
     font-family: arial;
     //font-weight: bold;
-    font-size: 8pt;
+    font-size: 6.5pt;
 
     border-width: 1pt;
     border-color: black;
@@ -626,20 +626,24 @@ $CalendarNoteHeight: $CalendarDayHeaderHeight + $CalendarDayBodyHeight + $Calend
       font-weight: bold;
       min-height: $CalendarDayHeaderHeight;
       max-height: $CalendarDayHeaderHeight;
-      padding-bottom:3pt;
+      padding-bottom:2pt;
+      overflow: hidden;  
     }
 
     &-Body {
       min-height: $CalendarDayBodyHeight;
       max-height: $CalendarDayBodyHeight;    
+      font-size: 6.5pt;
       overflow: hidden;  
     }
 
     &-Footer {
-      padding-top: 3pt;
+      padding-top: 2pt;
       min-height: 1$CalendarDayFooterHeight;
       max-height: $CalendarDayFooterHeight;
+      font-size: 6pt;
       font-weight: bold;
+      overflow: hidden;  
 
 //      padding-bottom: 17pt;
     }    
