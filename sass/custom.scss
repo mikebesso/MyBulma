@@ -10,6 +10,10 @@ $page-margin-top: 0.75in;
 $top-area-height: 0in;
 $top-area-valign: middle;
 
+$ZurichBlue1: #003399;
+$ZurichBlue2: #000066;
+$ZurichBlue1-75: #4066b3;
+
 
 $content-width: $page-width - (2 * $page-margin-lr);
 
@@ -564,30 +568,54 @@ $CalendarNoteHeight: $CalendarDayHeaderHeight + $CalendarDayBodyHeight + $Calend
     flex-grow: 0;
     flex-shrink: 0;
 
-    border-style: none;
-    border-width: 0pt;
+    min-height: 12pt;
+    max-height: 12pt;  
+    text-align: center;
+    border-style: solid;
+    border-width: thin;
+    border-color: white;
+    border-radius: 20%;
+    background-color: $ZurichBlue1;
+    color: white;
 
     min-width: $day-column-width;
     max-width: $day-column-width;
-    padding-left: 6pt;
-    padding-right: 6pt;
 
+/*
     &-Name {
-      min-height: 12pt;
-      max-height: 12pt;  
       font-weight: bold;    
       text-align: center;
+      border-color: $ZurichBlue;
+      border-width: 0;
+      border-style: none;
+      color: white;
 
     }
+  */
   }
 
 
+  &-Empty {
+    flex-grow: 0;
+    flex-shrink: 0;
+
+    border-width: 1pt;
+    border-color: black;
+    border-style: solid;
+    border-radius: 5%;
+
+    min-width: $day-column-width;
+    max-width: $day-column-width;
+    min-height: $CalendarNoteHeight;
+    max-height: $CalendarNoteHeight;
+  }
 
   &-Note {
     flex-grow: 0;
     flex-shrink: 0;
 
-    background-color: lightblue;
+    background-color: $ZurichBlue1-75;
+    color: white;
     
     font-family: arial;
     //font-weight: bold;
@@ -609,7 +637,7 @@ $CalendarNoteHeight: $CalendarDayHeaderHeight + $CalendarDayBodyHeight + $Calend
     flex-grow: 0;
     flex-shrink: 0;
 
-    background-color: whitesmoke;
+    background-color: white;
     
     border-width: 1pt;
     border-color: black;
@@ -627,6 +655,7 @@ $CalendarNoteHeight: $CalendarDayHeaderHeight + $CalendarDayBodyHeight + $Calend
       min-height: $CalendarDayHeaderHeight;
       max-height: $CalendarDayHeaderHeight;
       padding-bottom:2pt;
+      color: $ZurichBlue1;
       overflow: hidden;  
     }
 
@@ -644,6 +673,7 @@ $CalendarNoteHeight: $CalendarDayHeaderHeight + $CalendarDayBodyHeight + $Calend
       font-size: 6pt;
       font-weight: bold;
       overflow: hidden;  
+      color: $ZurichBlue1;
 
 //      padding-bottom: 17pt;
     }    

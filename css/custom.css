@@ -10146,25 +10146,48 @@ label.panel-block:hover {
 .Calendar-DayName {
   flex-grow: 0;
   flex-shrink: 0;
-  border-style: none;
-  border-width: 0pt;
-  min-width: 1.14286in;
-  max-width: 1.14286in;
-  padding-left: 6pt;
-  padding-right: 6pt;
-}
-
-.Calendar-DayName-Name {
   min-height: 12pt;
   max-height: 12pt;
-  font-weight: bold;
   text-align: center;
+  border-style: solid;
+  border-width: thin;
+  border-color: white;
+  border-radius: 20%;
+  background-color: #003399;
+  color: white;
+  min-width: 1.14286in;
+  max-width: 1.14286in;
+  /*
+    &-Name {
+      font-weight: bold;    
+      text-align: center;
+      border-color: $ZurichBlue;
+      border-width: 0;
+      border-style: none;
+      color: white;
+
+    }
+  */
+}
+
+.Calendar-Empty {
+  flex-grow: 0;
+  flex-shrink: 0;
+  border-width: 1pt;
+  border-color: black;
+  border-style: solid;
+  border-radius: 5%;
+  min-width: 1.14286in;
+  max-width: 1.14286in;
+  min-height: 118pt;
+  max-height: 118pt;
 }
 
 .Calendar-Note {
   flex-grow: 0;
   flex-shrink: 0;
-  background-color: lightblue;
+  background-color: #4066b3;
+  color: white;
   font-family: arial;
   font-size: 6.5pt;
   border-width: 1pt;
@@ -10181,7 +10204,7 @@ label.panel-block:hover {
 .Calendar-Day {
   flex-grow: 0;
   flex-shrink: 0;
-  background-color: whitesmoke;
+  background-color: white;
   border-width: 1pt;
   border-color: black;
   border-style: solid;
@@ -10196,6 +10219,7 @@ label.panel-block:hover {
   min-height: 10pt;
   max-height: 10pt;
   padding-bottom: 2pt;
+  color: #003399;
   overflow: hidden;
 }
 
@@ -10213,6 +10237,7 @@ label.panel-block:hover {
   font-size: 6pt;
   font-weight: bold;
   overflow: hidden;
+  color: #003399;
 }
 
 .Calendar-Day-Notes {
