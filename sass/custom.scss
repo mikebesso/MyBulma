@@ -113,6 +113,17 @@ $CalendarNoteHeight: $CalendarDayHeaderHeight + $CalendarDayBodyHeight + $Calend
   }
 }
 
+@page DisclaimerPage {
+
+  @bottom-left{
+    content: flow(BottomLeftContent);
+  }
+  @bottom-right{
+    font-size: 9pt;
+    content: counter(page);
+  }
+}
+
 /*
 .zircle-image{
   position: absolute;
@@ -149,13 +160,15 @@ $CalendarNoteHeight: $CalendarDayHeaderHeight + $CalendarDayBodyHeight + $Calend
 
 .DisclaimerPage {
 
+  page: DisclaimerPage;
+  
   position: relative;
   width: 100%;
   height: 10in;
   
   > div {
     position: absolute;
-    top: 5in;
+    top: 4.5in;
     width: 100%;
   }
 
