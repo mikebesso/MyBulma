@@ -7,7 +7,7 @@
 @page {
   size: 8.5in 11in portrait;
   margin-top: 0.75in;
-  margin-bottom: 0.25in;
+  margin-bottom: 0.5in;
   margin-left: 0.25in;
   margin-right: 0.25in;
   padding: 0in;
@@ -128,12 +128,11 @@
   page: DisclaimerPage;
   position: relative;
   width: 100%;
-  height: 10in;
 }
 
 .DisclaimerPage > div {
   position: absolute;
-  top: 4.5in;
+  top: 4in;
   width: 100%;
 }
 
@@ -9828,7 +9827,7 @@ label.panel-block:hover {
 
 .page, .ToC {
   width: 8in;
-  height: 10in;
+  height: 9.75in;
 }
 
 .is-2-print {
@@ -9858,21 +9857,21 @@ label.panel-block:hover {
 }
 
 .Intro-Image .PictureContainer {
-  padding: 1in;
+  padding: 0.125in;
   text-align: center;
 }
 
 .Intro-Image .PictureContainer img {
   object-fit: cover;
-  width: 100%;
+  width: 95%;
   height: auto;
 }
 
 .Intro-Title {
-  font-size: 24;
+  font-size: 18pt;
   font-weight: bold;
   margin-top: 12pt;
-  margin-bottom: 12pt;
+  margin-bottom: 6pt;
 }
 
 .Intro-Body {

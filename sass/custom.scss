@@ -4,7 +4,7 @@ $page-width: 8.5in;
 $page-height: 11in;
 
 $page-margin-lr: 0.25in;
-$page-margin-bottom: 0.25in;
+$page-margin-bottom: 0.5in;
 $page-margin-top: 0.75in;
 
 $top-area-height: 0in;
@@ -161,14 +161,14 @@ $CalendarNoteHeight: $CalendarDayHeaderHeight + $CalendarDayBodyHeight + $Calend
 .DisclaimerPage {
 
   page: DisclaimerPage;
-  
+
   position: relative;
   width: 100%;
-  height: 10in;
+  //height:9in;
   
   > div {
     position: absolute;
-    top: 4.5in;
+    top: 4in;
     width: 100%;
   }
 
@@ -233,12 +233,12 @@ $CalendarNoteHeight: $CalendarDayHeaderHeight + $CalendarDayBodyHeight + $Calend
 
     .PictureContainer {
 
-      padding: 1in;
+      padding: 0.125in;
       text-align: center;
 
       img {
         object-fit: cover;
-        width: 100%;
+        width: 95%;
         height: auto;
       }
     }
@@ -246,10 +246,10 @@ $CalendarNoteHeight: $CalendarDayHeaderHeight + $CalendarDayBodyHeight + $Calend
   }
 
   &-Title {
-    font-size: 24;
+    font-size: 18pt;
     font-weight: bold;
     margin-top: 12pt;
-    margin-bottom: 12pt;
+    margin-bottom: 6pt;
   }
 
   &-Body {
