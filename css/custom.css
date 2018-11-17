@@ -10341,7 +10341,12 @@ td {
 }
 
 .SourceSeeAlso {
-  margin-top: 0.25rem;
+  margin-top: 0.40rem;
+}
+
+.SourceSeeAlso p:first-of-type {
+  margin-bottom: 0;
+  font-style: italic;
 }
 
 .EditInSharePoint {
