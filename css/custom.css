@@ -85,13 +85,15 @@
 }
 
 @page DisclaimerPage {
-  @bottom-left {
+  /*
+  @bottom-left{
     content: flow(BottomLeftContent);
   }
-  @bottom-right {
+  @bottom-right{
     font-size: 9pt;
     content: counter(page);
   }
+  */
 }
 
 /*
