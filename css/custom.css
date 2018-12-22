@@ -9859,13 +9859,13 @@ label.panel-block:hover {
 }
 
 .Intro-Image .PictureContainer {
-  padding: 0.125in;
+  padding: 0.1in;
   text-align: center;
 }
 
 .Intro-Image .PictureContainer img {
   object-fit: cover;
-  width: 95%;
+  width: 85%;
   height: auto;
 }
 
